@@ -6,12 +6,12 @@ module Koudoku
     end
 
     def plan_interval(plan)
-      interval = %w(month year week 6-month 3-month).include?(plan.interval) ? plan.interval.delete('-') : 'month'
+      interval = %w(month year week 6-month 3-month day).include?(plan.interval) ? plan.interval.delete('-') : 'month'
       I18n.t("koudoku.plan_intervals.#{interval}")
     end
 
     # returns TRUE if the controller belongs to Koudoku
-    # false in all other cases, for convenience when executing filters 
+    # false in all other cases, for convenience when executing filters
     # in the main application
     def koudoku_controller?
       is_a? Koudoku::ApplicationController
